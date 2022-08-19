@@ -11,7 +11,14 @@ const initialState: IGlobalState = {
 const globalSlice = createSlice({
   name: 'globalState',
   initialState,
-  reducers: {}
+  reducers: {
+    showLoading: (state) => {
+      state.isLoading = true;
+    },
+    hideLoading: (state) => {
+      state.isLoading = false;
+    }
+  }
 });
 
 export const { actions: globalActions, reducer: globalReducer } = globalSlice;

@@ -1,1 +1,2 @@
-export { default as LoadingSpinner } from './components/LoadingSpinner';
+import LoadingSpinner from './components/LoadingSpinner';
+export default LoadingSpinner;

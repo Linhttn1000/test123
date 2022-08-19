@@ -8,13 +8,14 @@ export interface IRouteConfig {
   id: string;
   path: string;
   element: React.ReactElement;
+  children?: IRouteConfig[];
 }
 
 const routes: IRouteConfig[] = [
   {
     id: 'landing-page',
     path: '/',
-    element: <LazyLandingPage />
+    element: <LazyLandingPage />,
   },
   {
     id: 'authentication-page',
