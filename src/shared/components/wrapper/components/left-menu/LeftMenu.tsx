@@ -1,6 +1,6 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { LEFT_MENU_ITEMS as leftMenuItems } from './configs';
+import { LEFT_MENU_ITEMS as leftMenuItems } from '../configs';
 import classes from './styles.module.scss';
 
 const LeftMenu = () => {
