@@ -1,9 +1,12 @@
 import {
-  AddReaction, Group,
+  AddReaction,
+  Group,
   Home,
   Image,
-  LocalFireDepartment, MovieCreation, Newspaper,
-  Tag
+  LocalFireDepartment,
+  MovieCreation,
+  Newspaper,
+  Tag,
 } from '@mui/icons-material';
 
 interface IMenuItem {
@@ -11,6 +14,7 @@ interface IMenuItem {
   title: string;
   icon: any;
   path: string;
+  value?: string;
 }
 
 export const LEFT_MENU_ITEMS: IMenuItem[] = [
@@ -58,23 +62,27 @@ export const MIDDLE_MENU_ITEMS: IMenuItem[] = [
     title: 'Home',
     icon: Home,
     path: '/',
+    value: 'one',
   },
   {
     id: 'shorts',
     title: 'Shorts',
     icon: MovieCreation,
     path: '/',
+    value: 'two',
   },
   {
     id: 'reactions',
     title: 'Reactions',
     icon: AddReaction,
     path: '/',
+    value: 'third',
   },
   {
     id: 'hots',
     title: 'Hots!',
     icon: LocalFireDepartment,
     path: '/',
+    value: 'four',
   },
 ];
