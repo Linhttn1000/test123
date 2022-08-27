@@ -1,0 +1,12 @@
+.mid-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__tab-item {
+    font-weight: 700 !important;
+    font-size: 12px;
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+  }
+}

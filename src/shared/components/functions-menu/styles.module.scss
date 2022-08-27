@@ -1,0 +1,9 @@
+.menu {
+  width: 300px !important;
+  &__item {
+    padding: 8px 12px;
+    &__text {
+      padding-left: 24px;
+    }
+  }
+}

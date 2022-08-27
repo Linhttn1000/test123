@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 import React from 'react';
-import { RootState } from '../../../../store';
+import { RootState } from '../../../store';
 import classes from './styles.module.scss';
 
 const LoadingSpinner = () => {

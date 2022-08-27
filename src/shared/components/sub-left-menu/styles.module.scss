@@ -1,0 +1,12 @@
+.sub-menu {
+  width: 300px;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__list {
+    width: 100% !important;
+  }
+}
