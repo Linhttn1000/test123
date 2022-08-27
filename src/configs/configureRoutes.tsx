@@ -1,8 +1,10 @@
 import React from 'react';
 import { lazy } from 'react';
 
-const LazyLandingPage = lazy(() => import('../pages/landing-page').then(m => ({ default: m.LandingPage })));
-const LazyAuthenticationPage = lazy(() => import('../pages/authentication').then(m => ({ default: m.AuthenticationPage })));
+const LazyLandingPage = lazy(() => import('./../pages/landing-page').then((m) => ({ default: m.LandingPage })));
+const LazyAuthenticationPage = lazy(() =>
+  import('../pages/authentication').then((m) => ({ default: m.AuthenticationPage })),
+);
 
 export interface IRouteConfig {
   id: string;
@@ -20,7 +22,7 @@ const routes: IRouteConfig[] = [
   {
     id: 'authentication-page',
     path: '/auth',
-    element: <LazyAuthenticationPage />
+    element: <LazyAuthenticationPage />,
   },
 ];
 export default routes;
