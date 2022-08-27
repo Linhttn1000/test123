@@ -1,1 +1,1 @@
-export { default as AuthenticationPage } from './components/AuthenticationPage';
+export { default as AuthenticationPage } from './AuthenticationPage';
