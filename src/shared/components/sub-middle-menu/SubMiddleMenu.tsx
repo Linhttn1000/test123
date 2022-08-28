@@ -1,7 +1,6 @@
 import { Grid, Menu, MenuItem } from '@mui/material';
-import React from 'react';
-import classes from './styles.module.scss';
 import { SUB_MIDDLE_MENU_CONFIGS as configs } from './configs';
+import classes from './styles.module.scss';
 
 interface ISubMiddleMenuProp {
   anchorEl: HTMLElement | null;

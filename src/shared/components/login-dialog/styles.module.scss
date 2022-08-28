@@ -1,0 +1,46 @@
+@import './../../../assets/scss/variables';
+
+.dialog {
+  &__header {
+    border-bottom: 2px solid $lightGrey;
+  }
+
+  &__body {
+    padding-top: 24px !important;
+  }
+
+  &__footer {
+    padding: 24px 20px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $lightGrey !important;
+
+    &__btn {
+      background-color: $black !important;
+      color: $white;
+    }
+  }
+}
+
+.form-group {
+  margin: 16px 0;
+  padding: 12px;
+  width: 450px;
+}
+
+.btn {
+  padding: 12px !important;
+  border-radius: 100rem !important;
+  font-weight: 600 !important;
+}
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 4px 0 !important;
+  border-radius: 100rem !important;
+  font-size: 16px !important;
+}
