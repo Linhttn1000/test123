@@ -9,13 +9,13 @@ import {
   DialogTitle,
   Slide,
   Stack,
-  TextField,
+  TextField
 } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
-import React from 'react';
 import cx from 'classnames';
-import classes from './styles.module.scss';
+import React from 'react';
 import GoogleLogin from 'react-google-login';
+import classes from './styles.module.scss';
 
 interface ILoginDialogProp {
   isOpen: boolean;
