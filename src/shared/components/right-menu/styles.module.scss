@@ -1,3 +1,14 @@
+@import './../../../assets/scss/variables';
+
 .btn-register {
   border-radius: 100rem !important;
+  font-weight: 600 !important;
+}
+
+.btn {
+  background-color: $lightGrey !important;
+  transition: opacity .5s ease;
+  &:hover {
+    opacity: 0.8;
+  }
 }

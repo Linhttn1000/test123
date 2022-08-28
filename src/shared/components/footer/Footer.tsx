@@ -1,67 +1,35 @@
-import { ContactMail, Facebook, Twitter, Instagram, YouTube, Wifi, Pinterest } from '@mui/icons-material';
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import { Button, Grid, Stack, Typography } from '@mui/material';
+import { FOOTER_ADDITIONAL_INFO as additionalInfo, FOOTER_SOCIAL_NETWORKS as socialLinks } from './footerConfig';
 
 const Footer = () => {
   return (
     <>
-      <Box>
-        <Grid container>
-          <Grid item xs={3}>
-            <Stack>
-              <Typography>Seed feedback</Typography>
-              <Stack direction='row' spacing={2}>
-                <ContactMail />
-                <Typography>Typography</Typography>
-              </Stack>
-            </Stack>
-          </Grid>
-          <Grid item xs={6}>
-            <Stack direction='row' spacing={2} alignItems='center' justifyContent='center'>
-              <Button>
-                <Facebook />
-              </Button>
-              <Button>
-                <Twitter />
-              </Button>
-              <Button>
-                <Instagram />
-              </Button>
-              <Button>
-                <YouTube />
-              </Button>
-              <Button>
-                <Pinterest />
-              </Button>
-              <Button>
-                <Wifi />
-              </Button>
-            </Stack>
-            <Stack>
-              <Stack direction='row' spacing={2}>
-                <ContactMail />
-                <Typography>Typography</Typography>
-              </Stack>
-              <Stack direction='row' spacing={2}>
-                <ContactMail />
-                <Typography>Typography</Typography>
-              </Stack>
-            </Stack>
-            <Typography>2022 © UIT | All rights reserved</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Stack>
-              <Stack direction='row' spacing={2}>
-                <ContactMail />
-                <Typography>Typography</Typography>
-              </Stack>
-              <Stack direction='row' spacing={2}>
-                <ContactMail />
-                <Typography>Typography</Typography>
-              </Stack>
-            </Stack>
-          </Grid>
+      <Stack direction='column' spacing={4} padding={8}>
+        <Stack direction='row' spacing={2} alignItems='center' justifyContent='center'>
+          {socialLinks.map((socialItem) => (
+            <Button key={socialItem.id} variant='outlined'>
+              {socialItem.icon}
+            </Button>
+          ))}
+        </Stack>
+        <Grid container spacing={2}>
+          {additionalInfo.map((item, idx) => (
+            <Grid item xs={4} key={idx}>
+              {item.map((subItem) => (
+                <Stack key={subItem.id} direction='row' alignItems='center' justifyContent='center' spacing={2}>
+                  <span>{subItem.icon}</span>
+                  <Typography fontSize={12} marginTop={8}>
+                    {subItem.title}
+                  </Typography>
+                </Stack>
+              ))}
+            </Grid>
+          ))}
         </Grid>
-      </Box>
+        <Stack justifyContent='center' alignItems='center'>
+          <Typography fontSize={12}>2022 © UIT Media | All rights reserved</Typography>
+        </Stack>
+      </Stack>
     </>
   );
 };

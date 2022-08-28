@@ -1,14 +1,5 @@
 import { Menu, MenuItem } from '@mui/material';
-import React from 'react';
-import {
-  Newspaper,
-  Image,
-  VideoCall,
-  FormatAlignLeft,
-  FormatAlignJustify,
-  Close,
-  Headphones,
-} from '@mui/icons-material';
+import { FUNCTIONS_MENU_CONFIG as configs } from './functionsMenuConfig';
 import classes from './styles.module.scss';
 
 interface IFunctionsMenuProps {
@@ -28,35 +19,29 @@ const FunctionsMenu = ({ isOpen, onClose, anchorEl }: IFunctionsMenuProps) => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        className={classes.menu}
+        PaperProps={{
+          style: {
+            width: 280,
+            padding: 12,
+            borderRadius: 28
+          }
+        }}
       >
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <Newspaper />
-          <span className={classes['menu__item__text']}>News</span>
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <Image />
-          <span className={classes['menu__item__text']}>Images</span>
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <VideoCall />
-          <span className={classes['menu__item__text']}>Video</span>
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <FormatAlignLeft />
-          <span className={classes['menu__item__text']}>Poll</span>
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <FormatAlignJustify />
-          <span className={classes['menu__item__text']}>List</span>
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <Close />
-          <span className={classes['menu__item__text']}>Trivia Quiz</span>{' '}
-        </MenuItem>
-        <MenuItem onClick={onClose} className={classes['menu__item']}>
-          <Headphones />
-          <span className={classes['menu__item__text']}>Music</span>
-        </MenuItem>
+        {configs.map((config) => (
+          <MenuItem onClick={onClose} className={classes['menu__item']}>
+            {config.icon}
+            <span className={classes['menu__item__title']}>{config.title}</span>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );

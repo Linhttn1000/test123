@@ -1,7 +1,7 @@
 const Gallery = () => {
   return (
     <>
-      <h1>Grid Items</h1>
+      <h1>Gallery</h1>
     </>
   );
 };

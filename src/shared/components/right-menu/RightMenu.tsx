@@ -34,7 +34,7 @@ const RightMenu: React.FC = () => {
   return (
     <>
       <Stack spacing={2} alignItems='center' direction='row'>
-        <IconButton size='large' color='primary' onClick={showSearchBox}>
+        <IconButton size='large' color='primary' onClick={showSearchBox} className={classes.btn}>
           <Search />
         </IconButton>
         <IconButton
@@ -44,11 +44,12 @@ const RightMenu: React.FC = () => {
           aria-expanded={isFuncsMenuOpen ? 'true' : undefined}
           aria-controls={isFuncsMenuOpen ? 'basic-menu' : undefined}
           onClick={showFunctionsMenu}
+          className={classes.btn}
         >
           <Add />
         </IconButton>
         <FunctionsMenu anchorEl={anchorEl} onClose={hideFunctionsMenu} isOpen={isFuncsMenuOpen} />
-        <IconButton size='large' color='default' onClick={showLoginDialog}>
+        <IconButton size='large' color='default' onClick={showLoginDialog} className={classes.btn}>
           <Person />
         </IconButton>
         <LoginDialog isOpen={isShowLoginDialog} onClose={hideLoginDialog} />
