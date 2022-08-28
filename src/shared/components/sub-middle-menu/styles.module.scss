@@ -1,0 +1,19 @@
+@import './../../../assets/scss/variables';
+
+.menu__item {
+  border-radius: 100rem !important;
+  padding: 8px !important;
+  transition: all 0.5s ease;
+
+  &:hover {
+    .menu__item__title {
+      color: $red;
+    }
+  }
+
+  &__title {
+    padding-left: 18px;
+    font-size: 14px;
+    color: $gray;
+  }
+}

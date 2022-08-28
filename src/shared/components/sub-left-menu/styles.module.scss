@@ -17,8 +17,8 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.5s ease;
-      font-size: 42px;
-      color: $red;
+      font-size: 48px;
+      color: $red !important;
 
       &:hover {
         background-color: $lightGrey;
@@ -28,10 +28,10 @@
 
   &__list {
     width: 100% !important;
-    padding: 0 12px;
+    padding: 0 12px !important;
 
     &__item {
-      border-radius: 100rem;
+      border-radius: 100rem !important;
       color: $black;
     }
   }
