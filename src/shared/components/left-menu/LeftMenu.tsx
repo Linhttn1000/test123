@@ -24,12 +24,12 @@ const LeftMenu: React.FC = () => {
             <Menu />
           </Button>
           <Drawer anchor='left' open={isOpen} onClose={hideSubMenu}>
-            <SubLeftMenu />
+            <SubLeftMenu onClose={hideSubMenu} />
           </Drawer>
         </div>
         <div className={classes['menu__logo']}>
           <Link to='/'>
-            <img src="/logo.png" alt="Logo" />
+            <img src='/logo.png' alt='Logo' />
           </Link>
         </div>
       </div>

@@ -1,49 +1,35 @@
-import { Group, Home, Image, LocalFireDepartment, Newspaper, Tag } from '@mui/icons-material';
-import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import React from 'react';
+import { Close } from '@mui/icons-material';
+import { Divider, List, ListItemButton, ListItemIcon, ListItemText, SvgIcon } from '@mui/material';
+import { Stack } from '@mui/system';
+import { SUB_LEFT_MENU_CONFIGS as configs } from './configs';
 import classes from './styles.module.scss';
 
-const SubLeftMenu: React.FC = () => {
+interface ISubLeftMenuProp {
+  onClose: () => void;
+}
+
+const SubLeftMenu = ({ onClose }: ISubLeftMenuProp) => {
   return (
     <>
       <div className={classes['sub-menu']}>
+        <Stack className={classes['sub-menu__close']} padding={2}>
+          <SvgIcon
+            component={Close}
+            inheritViewBox
+            fontSize='large'
+            color='disabled'
+            className={classes['sub-menu__close__icon']}
+            onClick={onClose}
+          />
+        </Stack>
+        <Divider orientation='vertical' />
         <List className={classes['sub-menu__list']}>
-          <ListItemButton>
-            <ListItemIcon>
-              <Home />
-            </ListItemIcon>
-            <ListItemText>Home</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <LocalFireDepartment />
-            </ListItemIcon>
-            <ListItemText>Hots</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <Newspaper />
-            </ListItemIcon>
-            <ListItemText>Submit News</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <Image />
-            </ListItemIcon>
-            <ListItemText>Submit Image</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <Tag />
-            </ListItemIcon>
-            <ListItemText>Tags</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <Group />
-            </ListItemIcon>
-            <ListItemText>Top Users</ListItemText>
-          </ListItemButton>
+          {configs.map((config) => (
+            <ListItemButton key={config.id} className={classes['sub-menu__list__item']}>
+              <ListItemIcon>{config.icon}</ListItemIcon>
+              <ListItemText>{config.title}</ListItemText>
+            </ListItemButton>
+          ))}
         </List>
       </div>
     </>
