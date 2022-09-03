@@ -12,3 +12,7 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
 }
+
+.swal2-container {
+  z-index: 999999999999 !important;
+}

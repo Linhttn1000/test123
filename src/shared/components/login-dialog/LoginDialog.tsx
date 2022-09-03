@@ -13,10 +13,13 @@ import {
 } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import cx from 'classnames';
+import { useFormik } from 'formik';
 import React from 'react';
 import GoogleLogin from 'react-google-login';
+import * as yup from 'yup';
+import { useAppDispatch } from '../../../store/index';
+import { signIn } from './../../../store/slices/authSlice';
 import classes from './styles.module.scss';
-
 interface ILoginDialogProp {
   isOpen: boolean;
   onClose: () => void;
@@ -32,8 +35,36 @@ const Transition = React.forwardRef(function Transition(
 });
 
 const LoginDialog = ({ isOpen, onClose }: ILoginDialogProp) => {
+  const dispatch = useAppDispatch();
   const responseGoogle = (response: any): void => {
-    console.log(response);
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: ''
+    },
+    validationSchema: yup.object({
+      username: yup.string().required('Required'),
+      password: yup.string().required(),
+    }),
+    onSubmit: (values) => {
+      dispatch(signIn(values));
+    },
+  });
+
+  const handleError = (fieldName: 'username' | 'password') => {
+    if (formik.touched[fieldName] && formik.errors[fieldName]) {
+      return {
+        error: true,
+        label: 'Error',
+        helperText: 'Required',
+      };
+    }
+  };
+
+  const handleSignIn = (): void => {
+    formik.handleSubmit();
   };
 
   return (
@@ -51,16 +82,36 @@ const LoginDialog = ({ isOpen, onClose }: ILoginDialogProp) => {
         </DialogTitle>
         <DialogContent className={classes['dialog__body']}>
           <Box className={classes['form-group']}>
-            <TextField type='text' fullWidth label='Email or username' />
+            <TextField
+              type='text'
+              fullWidth
+              label='Email or username'
+              id='username'
+              {...handleError('username')}
+              {...formik.getFieldProps('username')}
+            />
           </Box>
           <Box className={classes['form-group']}>
-            <TextField type='password' fullWidth label='Password' />
+            <TextField
+              type='password'
+              fullWidth
+              label='Password'
+              {...handleError('password')}
+              {...formik.getFieldProps('password')}
+            />
           </Box>
           <Box sx={{ marginTop: '8px' }}>
             <Checkbox id='rememberPassword' /> <label htmlFor='rememberPassword'>Remember password</label>
           </Box>
           <Stack alignItems='center' justifyContent='center' margin='16px 0 4px 0'>
-            <Button variant='contained' color='success' fullWidth startIcon={<LoginSharp />} className={classes.btn}>
+            <Button
+              variant='contained'
+              color='success'
+              fullWidth
+              startIcon={<LoginSharp />}
+              className={classes.btn}
+              onClick={handleSignIn}
+            >
               Sign in
             </Button>
           </Stack>
