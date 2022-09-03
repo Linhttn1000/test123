@@ -23,6 +23,7 @@ import classes from './styles.module.scss';
 interface ILoginDialogProp {
   isOpen: boolean;
   onClose: () => void;
+  onNavigate: () => void;
 }
 
 const Transition = React.forwardRef(function Transition(
@@ -34,15 +35,13 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const LoginDialog = ({ isOpen, onClose }: ILoginDialogProp) => {
+const LoginDialog = ({ isOpen, onClose, onNavigate }: ILoginDialogProp) => {
   const dispatch = useAppDispatch();
-  const responseGoogle = (response: any): void => {
-  };
 
   const formik = useFormik({
     initialValues: {
       username: '',
-      password: ''
+      password: '',
     },
     validationSchema: yup.object({
       username: yup.string().required('Required'),
@@ -66,6 +65,8 @@ const LoginDialog = ({ isOpen, onClose }: ILoginDialogProp) => {
   const handleSignIn = (): void => {
     formik.handleSubmit();
   };
+
+  const responseGoogle = (response: any): void => {};;
 
   return (
     <>
@@ -135,6 +136,7 @@ const LoginDialog = ({ isOpen, onClose }: ILoginDialogProp) => {
             fullWidth
             className={cx(classes.btn, classes['dialog__footer__btn'])}
             startIcon={<AppRegistration />}
+            onClick={onNavigate}
           >
             Register
           </Button>

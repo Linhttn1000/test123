@@ -2,6 +2,7 @@ import { Add, Person, Search } from '@mui/icons-material';
 import { Button, Drawer, IconButton, Stack } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../../store/selectors/authSelector';
 import FunctionsMenu from '../functions-menu';
 import LoginDialog from '../login-dialog';
@@ -14,6 +15,7 @@ const RightMenu: React.FC = () => {
   const isFuncsMenuOpen = Boolean(anchorEl);
   const [isShowLoginDialog, setIsShowLoginDialog] = useState<boolean>(false);
   const user = useSelector(selectUser);
+  const navigate = useNavigate();
 
   const showSearchBox = (): void => {
     setIsOpen(true);
@@ -32,6 +34,12 @@ const RightMenu: React.FC = () => {
   };
   const hideLoginDialog = (): void => {
     setIsShowLoginDialog(false);
+  };
+  const navigateToSignUpPage = (): void => {
+    if (isShowLoginDialog) {
+      setIsShowLoginDialog(false);
+    }
+    navigate('/sign-up');
   };
 
   return (
@@ -59,8 +67,13 @@ const RightMenu: React.FC = () => {
             <IconButton size='large' color='default' onClick={showLoginDialog} className={classes.btn}>
               <Person />
             </IconButton>
-            <LoginDialog isOpen={isShowLoginDialog} onClose={hideLoginDialog} />
-            <Button variant='contained' color='primary' className={classes['btn-register']}>
+            <LoginDialog isOpen={isShowLoginDialog} onClose={hideLoginDialog} onNavigate={navigateToSignUpPage} />
+            <Button
+              variant='contained'
+              color='primary'
+              className={classes['btn-register']}
+              onClick={navigateToSignUpPage}
+            >
               Register
             </Button>
           </>
