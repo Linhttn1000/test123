@@ -1,0 +1,24 @@
+@import './../../assets/scss/variables';
+
+.container {
+  background-color: $lightGrey;
+  height: 65vh;
+  padding: 20px 0;
+  position: relative;
+
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 16px 0;
+    font-size: 32px;
+  }
+
+  .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    border-radius: 100rem !important;
+    min-width: 200px !important;
+  }
+}

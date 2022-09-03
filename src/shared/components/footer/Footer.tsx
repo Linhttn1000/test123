@@ -4,7 +4,7 @@ import { FOOTER_ADDITIONAL_INFO as additionalInfo, FOOTER_SOCIAL_NETWORKS as soc
 const Footer = () => {
   return (
     <>
-      <Stack direction='column' spacing={4} padding={8}>
+      <Stack direction='column' spacing={4} padding={4}>
         <Stack direction='row' spacing={2} alignItems='center' justifyContent='center'>
           {socialLinks.map((socialItem) => (
             <Button key={socialItem.id} variant='outlined'>
