@@ -11,7 +11,7 @@ const Footer = () => {
           width: '100%',
         }}
       >
-        <Stack direction='column' spacing={4} padding={4}>
+        <Stack direction='column' spacing={4}>
           <Stack direction='row' spacing={2} alignItems='center' justifyContent='center'>
             {socialLinks.map((socialItem) => (
               <Button key={socialItem.id} variant='outlined'>

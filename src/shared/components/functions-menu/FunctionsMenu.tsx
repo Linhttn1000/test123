@@ -32,12 +32,12 @@ const FunctionsMenu = ({ isOpen, onClose, anchorEl }: IFunctionsMenuProps) => {
           style: {
             width: 280,
             padding: 12,
-            borderRadius: 28
-          }
+            borderRadius: 28,
+          },
         }}
       >
         {configs.map((config) => (
-          <MenuItem onClick={onClose} className={classes['menu__item']}>
+          <MenuItem key={config.id} onClick={onClose} className={classes['menu__item']}>
             {config.icon}
             <span className={classes['menu__item__title']}>{config.title}</span>
           </MenuItem>

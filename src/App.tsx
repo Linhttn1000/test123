@@ -11,8 +11,6 @@ const App = () => {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             {routes.map((route) => {
-              if (route.children && route.children.length) {
-              }
               return <Route key={route.id} path={route.path} element={route.element} />;
             })}
           </Routes>
