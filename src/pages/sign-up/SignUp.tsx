@@ -1,12 +1,18 @@
 import { Email, Info, Password, Person, Phone } from '@mui/icons-material';
 import { Box, Button, Container, Divider, Grid, InputAdornment, Stack, TextField } from '@mui/material';
 import { useFormik } from 'formik';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
+import useLocalStorage from '../../shared/hooks/useLocalStorage';
+import { IUser } from '../../shared/types/user.interface';
 import classes from './styles.module.scss';
 
 type Field = 'username' | 'password' | 'email' | 'firstName' | 'lastName' | 'phone';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const currentUser = useLocalStorage('currentUser') as IUser;
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -38,6 +44,12 @@ const SignUp = () => {
       };
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <>

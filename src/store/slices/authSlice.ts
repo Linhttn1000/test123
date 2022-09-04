@@ -12,7 +12,9 @@ const initialState: IAuthState = {
 
 export const signIn = createAsyncThunk('auth/signIn', async (payload: { username: string; password: string; }) => {
   try {
-    const { data } = await axios.post('/auth/sign-in', payload, { headers: { 'Content-Type': 'application/json' } });
+    const { data } = await axios.post('/auth/sign-in', payload, {
+      headers: { 'Content-Type': 'application/json' },
+    });
     Swal.fire({
       title: 'Success',
       icon: 'success',
@@ -31,10 +33,16 @@ export const signIn = createAsyncThunk('auth/signIn', async (payload: { username
 const authSlice = createSlice({
   name: 'auth',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    signOut: (state) => {
+      localStorage.removeItem('currentUser');
+      state.user = null;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(signIn.fulfilled, (state, action) => {
       state.user = action.payload.data;
+      localStorage.setItem('currentUser', JSON.stringify(state.user));
     });
   },
 });

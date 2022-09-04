@@ -86,7 +86,7 @@ const LoginDialog = ({ isOpen, onClose, onNavigate }: ILoginDialogProp) => {
             <TextField
               type='text'
               fullWidth
-              label='Email or username'
+              label='Username'
               id='username'
               {...handleError('username')}
               {...formik.getFieldProps('username')}
