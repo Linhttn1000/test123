@@ -16,11 +16,12 @@ const LandingPage = () => {
         <Trending />
         <LandingPageNavigation />
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={8} paddingX={2}>
             <Gallery />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} paddingX={4}>
             <TagClouds />
+            <br />
             <Categories />
           </Grid>
         </Grid>
