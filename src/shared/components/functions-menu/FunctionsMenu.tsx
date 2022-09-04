@@ -1,4 +1,5 @@
 import { Menu, MenuItem } from '@mui/material';
+import Icon from '../icon';
 import { FUNCTIONS_MENU_CONFIG as configs } from './functionsMenuConfig';
 import classes from './styles.module.scss';
 
@@ -38,7 +39,7 @@ const FunctionsMenu = ({ isOpen, onClose, anchorEl }: IFunctionsMenuProps) => {
       >
         {configs.map((config) => (
           <MenuItem key={config.id} onClick={onClose} className={classes['menu__item']}>
-            {config.icon}
+            <Icon icon={config.icon} />
             <span className={classes['menu__item__title']}>{config.title}</span>
           </MenuItem>
         ))}

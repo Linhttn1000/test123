@@ -1,4 +1,4 @@
-import { ChatBubble, KeyboardArrowUp, Share, VideoCall, Visibility, VisibilityRounded } from '@mui/icons-material';
+import { ChatBubble, KeyboardArrowUp, Share, VideoCall, VisibilityRounded } from '@mui/icons-material';
 import { Chip, IconButton, SvgIcon, Tooltip } from '@mui/material';
 import { Stack } from '@mui/system';
 import classes from './styles.module.scss';

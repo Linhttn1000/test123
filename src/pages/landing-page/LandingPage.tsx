@@ -3,6 +3,7 @@ import Categories from './components/categories';
 import Gallery from './components/gallery';
 import LandingPageNavigation from './components/landing-page-navigation';
 import TagClouds from './components/tag-clouds/index';
+import TopVideos from './components/top-videos';
 import Trending from './components/trending';
 
 const LandingPage = () => {
@@ -21,6 +22,8 @@ const LandingPage = () => {
           </Grid>
           <Grid item xs={4} paddingX={4}>
             <TagClouds />
+            <br />
+            <TopVideos />
             <br />
             <Categories />
           </Grid>
