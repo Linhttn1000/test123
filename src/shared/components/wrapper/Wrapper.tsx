@@ -11,7 +11,7 @@ const Wrapper = ({ children }: IWrapperProps) => {
     <>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
