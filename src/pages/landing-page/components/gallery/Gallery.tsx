@@ -5,7 +5,7 @@ import { MOCK_DATA as data } from './mockData';
 const Gallery = () => {
   return (
     <>
-      <ImageList cols={3} rowHeight='auto' variant='masonry' gap={8}>
+      <ImageList cols={3} rowHeight='auto' variant='masonry' gap={4}>
         {data.map((item, key) => (
           <Box
             sx={{
